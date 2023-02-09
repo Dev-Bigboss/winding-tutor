@@ -6,3 +6,4 @@ export {default as ForgotPassword} from './ForgotPassword';
 export {default as Validation} from './Validation';
 export {default as Home} from './Home';
 export { default as Modules } from './Modules';
+export { default as Homescreen } from './Homescreen';

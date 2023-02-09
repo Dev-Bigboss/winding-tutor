@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, StatusBar, Image, TextInput, Icon, TouchableOpacity, Keyboard } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Buttons from '../constants/Buttons';
+import Homescreen from './Homescreen';
+import { useNavigation } from '@react-navigation/native';
 
+export default function Login({ navigation }) {
 
-export default function Login({navigation}) {
+    const { navigate } = useNavigation();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +25,7 @@ export default function Login({navigation}) {
     const handleSubmit = () => {
         Keyboard.dismiss();
         alert('email: ' + email + ' password: ' + password);
-        navigation.navigate('Home');
+        navigation.navigate('Homescreen');
     }
 
 
