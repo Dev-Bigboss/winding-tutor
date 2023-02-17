@@ -1,73 +1,112 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
+import myImage from './thumbnail.jpg'
 
-import modules from './data';
-
-
+const screenWidth = Dimensions.get('window').width;
 export default function Modules({ navigation }) {
-const handleModulePress = (item) => {
-navigation.navigate('Module', { item });
-};
-return (
+  return (
     <View style={styles.container}>
-        <FlatList
-            style={styles.list}
-            data={modules}
-            numColumns={2}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => handleModulePress(item)}>
-                <View style={styles.cardContainer}>
-              <Image 
-              source={{ uri: String(item.thumbnail) }} style={styles.cardImage} />
-              <Text style={styles.cardTitle}>{item.title}</Text>
-              <Text style={styles.cardInstructor}>{item.description}</Text>
-            </View>
-              </TouchableOpacity>  
-            )}
+    <View style={styles.row}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleA')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
         />
+        <Text style={styles.title}>Module 01</Text>
+        <Text style={styles.description}>Electric Motor Fundamentals</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleB')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 02</Text>
+        <Text style={styles.description}>Parts and Types of an Electric Motor </Text>
+      </TouchableOpacity>
+      </View>
+      <View style={styles.row}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleC')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 03</Text>
+        <Text style={styles.description}>Disassembling an Electric Motor</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleD')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 04</Text>
+        <Text style={styles.description}>Winding Formulae for a Single phase Motor</Text>
+      </TouchableOpacity>
+      </View>
+      <View style={styles.row}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleE')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 05</Text>
+        <Text style={styles.description}>Installation of a new winding</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleF')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 06</Text>
+        <Text style={styles.description}>Connecting Winding and Terminal.</Text>
+      </TouchableOpacity>
+      </View>
     </View>
-);
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-    paddingTop: 20,
+    justifyContent: 'center',
   },
-  cardContainer: {
-    backgroundColor: '#FFF',
-    width: '95%',
-    height: 200,
-    marginHorizontal: 10,
-    marginVertical: 10,
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: screenWidth,
+    paddingHorizontal: 20,
+  },
+  card: {
+    width: (screenWidth - 60) / 2,
+    height: 180,
+    backgroundColor: '#d1e9f5',
+    borderRadius: 0,
+    padding: 0,
+    paddingTop: 0,
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: '#000',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    elevation: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 2,
   },
-  cardImage: {
+  image: {
     width: '100%',
-    height: '60%',
-    resizeMode: 'cover',
+    height: 100,
+    marginBottom: 10,
+    marginTop: 0,
   },
-  cardTitle: {
-    fontSize: 16,
+  title: {
+    fontSize: 20,
     fontWeight: 'bold',
-    padding: 8,
-    color: '#333',
+    marginBottom:5,
+    
   },
-  cardInstructor: {
+  description: {
     fontSize: 14,
-    padding: 8,
-    color: '#777',
-  
+    color: '#333',
+    alignSelf: 'flex-start',
   },
 });
