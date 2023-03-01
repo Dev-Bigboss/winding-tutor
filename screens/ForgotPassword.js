@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Keyboard } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Keyboard, Dimensions } from 'react-native';
 import Buttons from '../constants/Buttons';
 import { StatusBar } from 'expo-status-bar';
 
+
+const { width, height} = Dimensions.get('window');
 export default function ForgotPassword({ navigation }) { 
-  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const handleResetPassword = () => {
     // Make API call to reset password for the user
@@ -26,15 +28,16 @@ export default function ForgotPassword({ navigation }) {
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <Text style={styles.title}>Forgot your password?</Text>
       <Text style={styles.subTitle}>No problem! Enter the email address you registered with and we'll send you a password reset link</Text>
-      <Text style={styles.heading}>Enter your email</Text>
+      <Text style={styles.heading}>Enter your Phone Number</Text>
       <View style={styles.inputHeader}>
-        <TextInput 
-          style={styles.input} 
-          placeholder="Enter your email"
-          autoCapitalize='none'
-          onChangeText={setEmail}
-          value={email}
-        />
+      <TextInput
+                        style={styles.input}
+                        placeholder="Enter your phone number"
+                        keyboardType="phone-pad"
+                        autoCapitalize="none"
+                        onChangeText={setPhoneNumber}
+                        value={phoneNumber}
+                    />
       </View>
       <View style={styles.Buttons}>
         <Buttons title="RESET PASSWORD" onPress={handleResetPassword} />
@@ -57,49 +60,51 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
     title: {
-        fontSize: 30,
-        fontWeight: '700', 
-        lineHeight: 40, 
-        color: '#302828',
-        width: 350,
-        top: -30,
-    },
+      fontSize: 30,
+      fontWeight: '700',
+      lineHeight: 40,
+      color: '#302828',
+      width: width * 0.9, // make width responsive
+      marginTop:0, // make height responsive 
+      marginBottom: height * 0.05, // make height responsive
+       },
     subTitle: {
-        fontSize: 15,
-        fontWeight: '400',
-        lineHeight: 25,
-        color: '#493e3e',
-        width: 350,
-        marginTop: 3
+      fontSize: 15,
+      fontWeight: '400',
+      lineHeight: 25,
+      color: '#493e3e',
+      width: width * 0.9, // make width responsive
+      marginTop: height * 0.01, // make height responsive
     },
     heading: {
-        width: 350, 
-        fontSize: 15, 
-        fontWeight: '600',
-        paddingTop: 10,
-        paddingBottom: 5,
+      width: width * 0.9, 
+      fontSize: 15, 
+      fontWeight: '600',
+      paddingTop: height * 0.015, // make height responsive
+      paddingBottom: height * 0.007, // make height responsive
     },
     inputHeader: {
-        position: 'relative',
-        flexDirection: 'row', 
-        backgroundColor: '#e6eaf4', 
-        width:350,
-        height: 40,
-        borderRadius: 5,
-        borderColor: '#0039bc',
+      position: 'relative',
+      flexDirection: 'row', 
+      backgroundColor: '#e6eaf4', 
+      width: width * 0.9, // make width responsive
+      height: height * 0.05, // make height responsive
+      borderRadius: 5,
+      borderColor: '#0039bc',
     },
     input: {
-        backgroundColor: '#e6eaf4',
-        flexDirection: 'row',
-        width: 350,
-        height: 40,
-        paddingHorizontal: 10,
-        marginBottom: 20,
-        borderRadius: 5,
-        flex: 1,
+      backgroundColor: '#e6eaf4',
+      flexDirection: 'row',
+      width: width * 0.9, // make width responsive
+      height: height * 0.05, // make height responsive
+      paddingHorizontal: 10,
+      marginBottom: height * 0.025, // make height responsive
+      borderRadius: 5,
+      flex: 1,
     },
     Buttons: {
-    marginTop: 20,
+      width: width * 0.9, 
+      marginTop: height * 0.05, // make height responsive
     },
 });
 

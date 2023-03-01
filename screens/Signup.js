@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Dimensions } from 'react-native';
 import Buttons from '../constants/Buttons';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
 
+
+const { width, height } = Dimensions.get('window');
 export default function Signup({ navigation }) { 
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
@@ -15,7 +17,7 @@ export default function Signup({ navigation }) {
 
   const handleSignup = () => {
     Keyboard.dismiss();
-    alert('name: ' + name + ' email: ' + email + ' password: ' + password); 
+    alert('name: ' + name + ' phoneNumber ' + phoneNumber + ' password: ' + password); 
     navigation.navigate('Validation');
   }
 
@@ -39,15 +41,16 @@ export default function Signup({ navigation }) {
       value={name}
        />
       </View>
-      <Text style={styles.heading}>Email</Text>
+      <Text style={styles.heading}>Phone Number</Text>
       <View style={styles.inputHeader}>
-      <TextInput 
-      style={styles.input} 
-      placeholder="Enter your email"
-      autoCapitalize='none'
-      onChangeText={setEmail}
-      value={email}
-       />
+      <TextInput
+                        style={styles.input}
+                        placeholder="Enter your phone number"
+                        keyboardType="phone-pad"
+                        autoCapitalize="none"
+                        onChangeText={setPhoneNumber}
+                        value={phoneNumber}
+                    />
       </View>
       <Text style={styles.heading}>Password</Text>
       <View style={styles.inputHeader}>
@@ -93,56 +96,56 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontWeight: '700',
-    lineHeight: 40,
-    color: '#302828',
-    width:350,
-    marginBottom: 8,
+      fontWeight: '700',
+      lineHeight: 40,
+      color: '#302828',
+      width: width * 0.9, // make width responsive
   },
   subTitle: {
     fontSize: 15,
     fontWeight: '400',
+    lineHeight: 25,
     color: '#493e3e',
-    width: 350,
-    marginBottom: 20,
+    width: width * 0.9, // make width responsive
+    marginTop: height * 0.01, // make height responsive
   },
 
   inputHeader: {
     position: 'relative',
-    flexDirection: 'row',
-    backgroundColor: '#e6eaf4',
-    width: 350,
-    height: 40,
+    flexDirection: 'row', 
+    backgroundColor: '#e6eaf4', 
+    width: width * 0.9, // make width responsive
+    height: height * 0.05, // make height responsive
     borderRadius: 5,
     borderColor: '#0039bc',
-
   },
   heading: {
-    fontSize: 15,
-    width: 350,
+    width: width * 0.9, 
+    fontSize: 15, 
     fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 5,
+    paddingTop: height * 0.015, // make height responsive
+    paddingBottom: height * 0.007, // make height responsive
   },
 
   input: {
     backgroundColor: '#e6eaf4',
     flexDirection: 'row',
-    width: 350,
-    height: 40,
-    flex: 1,
-    borderRadius: 5,
-    marginBottom: 20,
+    width: width * 0.9, // make width responsive
+    height: height * 0.05, // make height responsive
     paddingHorizontal: 10,
+    marginBottom: height * 0.025, // make height responsive
+    borderRadius: 5,
+    flex: 1,
   },
   Buttons: {
-    marginTop: 40,
+    marginTop: height * 0.05,
+    width: width * 0.9,  // make height responsive
   },
  disclaimer: {
     fontSize: 13,
     fontWeight: '400',
     color: '#493e3e',
-    width: 350,
+    width: width * 0.9, // make width responsive
     marginTop: 10,
     lineHeight: 14.25,
  }

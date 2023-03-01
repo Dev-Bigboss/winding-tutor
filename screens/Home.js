@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import myImage from './thumbnail.jpg';
@@ -8,8 +8,39 @@ const screenWidth = Dimensions.get('window').width;
 
 export default function Home({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+    <Text style={styles.profile}>Hi,</Text>
+    <View style={styles.welcome}>
+      <Text style={styles.welcome}>Welcome to the Electric Motor Winding Learning App.</Text>
+      <Text style={styles.welcome}>In this app, you will learn all you need to know about Electric Motor Winding</Text>
+      <Text style={styles.welcome}>This app contains six modules of learning and also contains practical illustrations with well explained videos and an asssessment at the end of learning all modules</Text>
+      </View>
+      <View style={styles.moduleContainer} >
+      <Text style={styles.profile}>Let's Get started</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Modules')}>
+            <Ionicons name="md-arrow-forward" size={24} color="black" />
+          </TouchableOpacity>
+      </View>
+      <View style={styles.row}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenA')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 01</Text>
+        <Text style={styles.description}>Electric Motor Fundamentals</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenB')}>
+        <Image 
+          style={styles.image}
+          source={myImage} 
+        />
+        <Text style={styles.title}>Module 02</Text>
+        <Text style={styles.description}>Parts and Types of an Electric Motor </Text>
+      </TouchableOpacity>
+      </View>
     <Text style={styles.profile}>Profile</Text>
+    <View style={styles.profileContainer}>
      <TouchableOpacity onPress={()=> navigation.navigate('Profile')}>
      <View style={styles.header}>
       <Icon name="user-circle" size={80} width={60} height={60} borderRadius={30}/>
@@ -19,49 +50,11 @@ export default function Home({ navigation }) {
         </View>
       </View>
       </TouchableOpacity>
-      <View style={styles.welcome}>
-      <Text>Hi, Welcome to the Electric Motor Winding Learning App.</Text>
-      <Text>In this app, you will learn all you need to know about Electric Motor Winding</Text>
-      <Text>This app contains six modules of learning with well explained videos and an asssessment at the end of learning all modules</Text>
-      </View>
-      <View style={styles.moduleContainer} >
-      <Text style={styles.profile}>Lets's Get started</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Modules')}>
-            <Ionicons name="md-arrow-forward" size={24} color="black" />
-          </TouchableOpacity>
-      </View>
-      <View style={styles.row}>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleA')}>
-        <Image 
-          style={styles.image}
-          source={myImage} 
-        />
-        <Text style={styles.title}>Module 01</Text>
-        <Text style={styles.description}>Electric Motor Fundamentals</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleB')}>
-        <Image 
-          style={styles.image}
-          source={myImage} 
-        />
-        <Text style={styles.title}>Module 02</Text>
-        <Text style={styles.description}>Parts and Types of an Electric Motor </Text>
-      </TouchableOpacity>
-      </View>
-      <Text style={styles.profile}>Facilitators</Text>
-      <View style={styles.instructorContainer}>
-          <Ionicons name="md-person" size={24} color="black" />
-          <Text style={styles.instructor}>T.C. OGBUANYA | </Text>
-          <Text style={styles.instructorType}>Supervisor</Text>
-          
-        </View>
-        <View style={styles.instructorContainer}>
-          <Ionicons name="md-person" size={24} color="black" />
-          <Text style={styles.instructor}>O.M. ARILESHERE | </Text>
-          <Text style={styles.instructorType}>Instructor</Text>
-          
-        </View>
     </View>
+      
+     
+      
+    </ScrollView>
   );
 }
 
@@ -82,27 +75,17 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     backgroundColor: '#fff',
   },
-  instructorContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    marginLeft: 20,
-    marginTop: 10,
+  profileContainer: {
+    // flex: 1,
+    backgroundColor: '#f8f9fa',
+    width: screenWidth *0.9,
+    alignSelf: 'center',
+
   },
-  instructor: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginLeft: 10,
-  
-  },
-  instructorType: {
-    fontSize: 14,
-    color: '#777',
-    marginLeft: 10,
-  },
+ 
   profile: {
     
-    fontSize: 20,
+    fontSize: 25,
     marginTop: 10,
     fontWeight: 'bold',
     marginLeft: 20,
@@ -110,9 +93,10 @@ const styles = StyleSheet.create({
   },
   welcome: {
     marginTop: 10,
-    marginLeft: 20,
-    marginRight: 20,
-    fontSize: 16,
+    width: screenWidth * 0.9,
+    alignSelf: 'center',
+    fontSize: 20,
+
   },
   header: {
     backgroundColor: '#fff',

@@ -16,6 +16,7 @@
     "deprecated-react-native-prop-types": "^4.0.0",
     "expo": "~47.0.9",
     "expo-status-bar": "~1.4.2",
+    "firebase": "^9.17.1",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-gesture-handler": "^2.8.0",
@@ -28,7 +29,8 @@
     "react-native-video": "^5.2.1",
     "react-native-webview": "11.23.1",
     "react-native-youtube-iframe": "^2.2.2",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "expo-updates": "~0.15.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

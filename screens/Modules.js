@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 import myImage from './thumbnail.jpg'
 
 const screenWidth = Dimensions.get('window').width;
 export default function Modules({ navigation }) {
   return (
     <View style={styles.container}>
+    <ScrollView style={styles.scrollcontainer}>
+
     <View style={styles.row}>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleA')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenA')}>
         <Image 
           style={styles.image}
           source={myImage} 
@@ -15,51 +17,52 @@ export default function Modules({ navigation }) {
         <Text style={styles.title}>Module 01</Text>
         <Text style={styles.description}>Electric Motor Fundamentals</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleB')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenB')}>
         <Image 
           style={styles.image}
           source={myImage} 
         />
         <Text style={styles.title}>Module 02</Text>
-        <Text style={styles.description}>Parts and Types of an Electric Motor </Text>
+        <Text style={styles.description}>Types and Applications of Electric Motor </Text>
       </TouchableOpacity>
       </View>
       <View style={styles.row}>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleC')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenC')}>
         <Image 
           style={styles.image}
           source={myImage} 
         />
         <Text style={styles.title}>Module 03</Text>
-        <Text style={styles.description}>Disassembling an Electric Motor</Text>
+        <Text style={styles.description}>Winding Process</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleD')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenD')}>
         <Image 
           style={styles.image}
           source={myImage} 
         />
         <Text style={styles.title}>Module 04</Text>
-        <Text style={styles.description}>Winding Formulae for a Single phase Motor</Text>
+        <Text style={styles.description}>Rewinding Process</Text>
       </TouchableOpacity>
       </View>
       <View style={styles.row}>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleE')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenF')}>
         <Image 
           style={styles.image}
           source={myImage} 
         />
         <Text style={styles.title}>Module 05</Text>
-        <Text style={styles.description}>Installation of a new winding</Text>
+        <Text style={styles.description}>Interactive Videos of Winding of electric motor</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleF')}>
+      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ModuleScreenE')}>
         <Image 
           style={styles.image}
           source={myImage} 
         />
         <Text style={styles.title}>Module 06</Text>
-        <Text style={styles.description}>Connecting Winding and Terminal.</Text>
+        <Text style={styles.description}>Application Tutor Performance Test</Text>
       </TouchableOpacity>
       </View>
+    </ScrollView>
     </View>
   );
 }
@@ -69,6 +72,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  scrollContainer: {
+    flex: 1,
+    width: '100%',
   },
   row: {
     flexDirection: 'row',
