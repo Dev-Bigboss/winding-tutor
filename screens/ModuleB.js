@@ -24,7 +24,7 @@ export default function ModuleB({ navigation }) {
     <View style={styles.container}>
     
         <View style={styles.moduleTitleContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('ModuleScreenE')}>
+          <TouchableOpacity onPress={() => navigation.navigate('ModuleScreenF')}>
             <Ionicons name="md-arrow-back" size={24} color="black" />
           </TouchableOpacity>
           <Text style={styles.moduleTitle}>VIDEO 02</Text>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   video: {
-    height: 200,
+    height: 225,
     backgroundColor: '#333',
     width: screenWidth * 1 ,
     marginTop: '50%',

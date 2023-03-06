@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Modules from './Modules';
-import Profile from './Profile';
+// import Profile from './Profile';
 import Home from './Home';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -35,7 +35,7 @@ export default function Tabs() {
         }}
 
          />
-        <BottomTab.Screen 
+        {/* <BottomTab.Screen 
         name="Profile" 
         component={Profile}
          
@@ -46,7 +46,7 @@ export default function Tabs() {
                 return <Ionicons name={iconName} color={color} size={size} />
             },
         }}
-         />
+         /> */}
 
     </BottomTab.Navigator>
     );

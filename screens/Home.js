@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import myImage from './thumbnail.jpg';
 
 const screenWidth = Dimensions.get('window').width;
@@ -39,7 +38,7 @@ export default function Home({ navigation }) {
         <Text style={styles.description}>Parts and Types of an Electric Motor </Text>
       </TouchableOpacity>
       </View>
-    <Text style={styles.profile}>Profile</Text>
+    {/* <Text style={styles.profile}>Profile</Text>
     <View style={styles.profileContainer}>
      <TouchableOpacity onPress={()=> navigation.navigate('Profile')}>
      <View style={styles.header}>
@@ -51,7 +50,7 @@ export default function Home({ navigation }) {
       </View>
       </TouchableOpacity>
     </View>
-      
+       */}
      
       
     </ScrollView>

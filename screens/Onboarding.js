@@ -13,14 +13,7 @@ const OnboardingScreen = ({navigation}) => {
       <Text style={styles.text}>Become a Motor Winding Pro!</Text>
       <Text style={styles.text1}>Learn motor winding from certified teachers with WindingTutor</Text>
     <View>
-        <Buttons title="START LEARINING" onPress={()=>navigation.navigate('Signup')}/>
-      
-        <View style={{flexDirection: 'row', marginTop:10, justifyContent:'center', fontWeight:400, fontSize: 15}}>
-          <Text style={{color:'#77797c'}}>Already a student? </Text>
-         <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
-         <Text style={{color:'#0039bc'}} >Login here</Text>
-         </TouchableOpacity>
-        </View>
+        <Buttons title="START LEARINING" onPress={()=>navigation.navigate('Homescreen')}/>
       </View>
     </View>
   );
